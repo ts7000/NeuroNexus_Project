@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Stylish Web Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 550px;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4b0082;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fff;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
+      color: #444;
+    }
+
+    button[type="submit"] {
+      margin-top: 25px;
+      padding: 12px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+    }
+
+    /* Confirmation Message (hidden by default) */
+    .confirmation-message {
+      display: none;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .confirmation-message h3 {
+      color: #4caf50;
+      margin-bottom: 10px;
+    }
+
+    /* Use :target to display confirmation */
+    #thankyou:target ~ .form-container {
+      display: none;
+    }
+
+    #thankyou:target ~ .confirmation-message {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .form-container,
+      .confirmation-message {
+        padding: 20px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Invisible anchor for :target simulation -->
+    <a id="thankyou"></a>
+
+    <!-- Form Section -->
+    <div class="form-container">
+      <h2>Contact Information Form</h2>
+      <form action="/submit" method="post">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="department">Department</label>
+        <select id="department" name="department">
+          <option value="HR">HR</option>
+          <option value="Sales">Sales</option>
+          <option value="Development">Development</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <fieldset
