@@ -1,4 +1,5 @@
-# NeuroNexus_Project
+# Minimalist Multi-Field Form with Confirmation Feedback
+
 # Responsive Stylish Web Form
 
 This project is a responsive and stylish web form designed with HTML and CSS. It features a modern design with a gradient background, smooth transitions, and a user-friendly layout.
